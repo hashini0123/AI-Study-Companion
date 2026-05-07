@@ -4,7 +4,7 @@ import edu.icet.dto.UsersDTO;
 
 import java.util.List;
 
-public interface UsersService {
+public interface UserService {
     void saveUsers(UsersDTO usersDTO);
 
     boolean updateUsers(String id, UsersDTO usersDTO);
