@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.dto.UsersDTO;
+import edu.icet.dto.UserDTO;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,14 +17,14 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveUsers(@RequestBody UsersDTO usersDTO){
-        userService.saveUsers(usersDTO);
+    public ResponseEntity<String> saveUser(@RequestBody UserDTO userDTO){
+        userService.saveUser(userDTO);
         return ResponseEntity.ok("User saved successfully!");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> updateUsers(@PathVariable String id , @RequestBody UsersDTO usersDTO){
-        boolean isUpdate = userService.updateUsers(id, usersDTO);
+    public ResponseEntity<String> updateUser(@PathVariable String id , @RequestBody UserDTO userDTO){
+        boolean isUpdate = userService.updateUser(id, userDTO);
 
         if(isUpdate){
             return ResponseEntity.ok("User update successfully!");
@@ -34,8 +34,8 @@ public class UserController {
     }
 
     @DeleteMapping("/delete-by-id/{id}")
-    public ResponseEntity<String> deleteUsers(@PathVariable String id){
-        boolean isDelete = userService.deleteUsers(id);
+    public ResponseEntity<String> deleteUser(@PathVariable String id){
+        boolean isDelete = userService.deleteUser(id);
 
         if(isDelete){
             return ResponseEntity.ok("User delete successfully!");
@@ -45,9 +45,9 @@ public class UserController {
     }
 
     @GetMapping("/get-All")
-    public ResponseEntity<List<UsersDTO>> getAllUsers(){
-        List<UsersDTO> allUsers = userService.getAllUsers();
-        return ResponseEntity.ok(allUsers);
+    public ResponseEntity<List<UserDTO>> getAllUser(){
+        List<UserDTO> allUser = userService.getAllUser();
+        return ResponseEntity.ok(allUser);
     }
 
 }
