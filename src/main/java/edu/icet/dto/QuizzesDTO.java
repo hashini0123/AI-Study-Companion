@@ -1,23 +1,17 @@
 package edu.icet.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class QuizzesDTO {
-
     private String id;
-
     private String documentId;
-
     private String title;
-
     private LocalDateTime createdAt;
 }
