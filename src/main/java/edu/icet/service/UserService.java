@@ -1,15 +1,15 @@
 package edu.icet.service;
 
-import edu.icet.dto.UsersDTO;
+import edu.icet.dto.UserDTO;
 
 import java.util.List;
 
 public interface UserService {
-    void saveUsers(UsersDTO usersDTO);
+    void saveUser(UserDTO userDTO);
 
-    boolean updateUsers(String id, UsersDTO usersDTO);
+    boolean updateUser(String id, UserDTO userDTO);
 
-    boolean deleteUsers(String id);
+    boolean deleteUser(String id);
 
-    List<UsersDTO> getAllUsers();
+    List<UserDTO> getAllUser();
 }

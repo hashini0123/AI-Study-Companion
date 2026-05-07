@@ -1,6 +1,6 @@
 package edu.icet.service.Impl;
 
-import edu.icet.dto.UsersDTO;
+import edu.icet.dto.UserDTO;
 import edu.icet.repository.UserRepository;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -12,24 +12,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    //private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
-    public void saveUsers(UsersDTO usersDTO) {
+    public void saveUser(UserDTO userDTO) {
+        userRepository.save(userDTO);
     }
 
     @Override
-    public boolean updateUsers(String id, UsersDTO usersDTO) {
+    public boolean updateUser(String id, UserDTO userDTO) {
         return false;
     }
 
     @Override
-    public boolean deleteUsers(String id) {
+    public boolean deleteUser(String id) {
         return false;
     }
 
     @Override
-    public List<UsersDTO> getAllUsers() {
+    public List<UserDTO> getAllUser() {
         return List.of();
     }
 }
