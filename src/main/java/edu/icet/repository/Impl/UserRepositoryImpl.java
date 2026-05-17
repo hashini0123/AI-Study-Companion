@@ -23,5 +23,16 @@ public class UserRepositoryImpl implements UserRepository {
                 );
     }
 
+    @Override
+    public boolean updateUser(UserDTO userDTO) {
+        String sql = "UPDATE user SET userName=?, userEmail=?, CreatedAt=?, WHERE userId=?";
+        return jdbcTemplate.update(sql,
+                userDTO.getUserName(),
+                userDTO.getEmail(),
+                userDTO.getCreatedAt(),
+                userDTO.getId()
+                )>0;
+    }
+
 
 }
