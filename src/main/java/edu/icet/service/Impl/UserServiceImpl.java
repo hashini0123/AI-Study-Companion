@@ -4,6 +4,7 @@ import edu.icet.dto.UserDTO;
 import edu.icet.repository.UserRepository;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,9 +22,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateUser(String id, UserDTO userDTO) {
-        return false;
-    }
+        userDTO.setId(String.valueOf(Long.parseLong(id)));
 
+        return userRepository.updateUser(userDTO);
+    }
     @Override
     public boolean deleteUser(String id) {
         return false;
