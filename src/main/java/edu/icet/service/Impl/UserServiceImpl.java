@@ -26,9 +26,12 @@ public class UserServiceImpl implements UserService {
 
         return userRepository.updateUser(userDTO);
     }
+
     @Override
     public boolean deleteUser(String id) {
-        return false;
+        Long userId = Long.parseLong(id);
+
+        return userRepository.deleteById(id);
     }
 
     @Override
