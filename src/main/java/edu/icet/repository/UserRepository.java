@@ -1,16 +1,16 @@
 package edu.icet.repository;
 
-import edu.icet.dto.UserDTO;
+import edu.icet.dto.UsersDTO;
 import org.apache.catalina.User;
 
 import java.util.List;
 
 public interface UserRepository {
-    void save(UserDTO userDTO);
+    void save(UsersDTO usersDTO);
 
-    boolean updateUser(UserDTO userDTO);
+    boolean updateUser(UsersDTO usersDTO);
 
     boolean deleteById(String id);
 
-    List<UserDTO> getAll();
+    List<UsersDTO> getAllUsers();
 }
