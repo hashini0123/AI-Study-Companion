@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @ToString
 
 public class UsersDTO {
-    private Long id;
+    private String id;
     private String userName;
     private String email;
     private LocalDateTime created_at;
