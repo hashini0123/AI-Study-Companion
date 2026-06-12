@@ -1,6 +1,6 @@
 package edu.icet.service.Impl;
 
-import edu.icet.dto.UserDTO;
+import edu.icet.dto.UsersDTO;
 import edu.icet.repository.UserRepository;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -16,15 +16,15 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public void saveUser(UserDTO userDTO) {
-        userRepository.save(userDTO);
+    public void saveUser(UsersDTO usersDTO) {
+        userRepository.save(usersDTO);
     }
 
     @Override
-    public boolean updateUser(String id, UserDTO userDTO) {
-        userDTO.setId(String.valueOf(Long.parseLong(id)));
+    public boolean updateUser(UsersDTO usersDTO) {
+        //usersDTO.setId(String.valueOf(Long.parseLong(id)));
 
-        return userRepository.updateUser(userDTO);
+        return userRepository.updateUser(usersDTO);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUser() {
-        return userRepository.getAll();
+    public List<UsersDTO> getAllUsers() {
+        return userRepository.getAllUsers();
     }
 }
