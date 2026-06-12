@@ -9,8 +9,8 @@ import org.w3c.dom.Text;
 @NoArgsConstructor
 @ToString
 public class QuestionsDTO {
-    private String id;
-    private String quizId;
+    private Long id;
+    private Long quizId;
     private Text questionText;
     private String optionA;
     private String optionB;

@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class DocumentsDTO {
-    private String id;
-    private String userId;
+    private Long id;
+    private Long userId;
     private String fileName;
     private String filePath;
     private LocalDateTime uploadedAt;

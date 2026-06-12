@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class SummariesDTO {
-    private String id;
-    private String documentId;
+    private Long id;
+    private Long documentId;
     private Text summaryText;
     private LocalDateTime createdAt;
 }
