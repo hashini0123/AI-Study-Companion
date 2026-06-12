@@ -1,6 +1,7 @@
 package edu.icet.controller;
 
-import edu.icet.dto.UserDTO;
+import edu.icet.dto.UsersDTO;
+import edu.icet.dto.UsersDTO;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,14 +18,14 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveUser(@RequestBody UserDTO userDTO){
-        userService.saveUser(userDTO);
+    public ResponseEntity<String> saveUser(@RequestBody UsersDTO usersDTO){
+        userService.saveUser(usersDTO);
         return ResponseEntity.ok("User saved successfully!");
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable String id , @RequestBody UserDTO userDTO){
-        boolean isUpdate = userService.updateUser(id, userDTO);
+    @PutMapping("/update")
+    public ResponseEntity<String> updateUser(@RequestBody UsersDTO usersDTO){
+        boolean isUpdate = userService.updateUser(usersDTO);
 
         if(isUpdate){
             return ResponseEntity.ok("User update successfully!");
@@ -45,8 +46,8 @@ public class UserController {
     }
 
     @GetMapping("/get-All")
-    public ResponseEntity<List<UserDTO>> getAllUser(){
-        List<UserDTO> allUser = userService.getAllUser();
+    public ResponseEntity<List<UsersDTO>> getAllUsers(){
+        List<UsersDTO> allUser = userService.getAllUsers();
         return ResponseEntity.ok(allUser);
     }
 
