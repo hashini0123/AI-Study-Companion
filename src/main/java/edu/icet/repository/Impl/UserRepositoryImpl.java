@@ -1,6 +1,6 @@
 package edu.icet.repository.Impl;
 
-import edu.icet.dto.UserDTO;
+import edu.icet.dto.UsersDTO;
 import edu.icet.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,48 +15,48 @@ public class UserRepositoryImpl implements UserRepository {
     private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public void save(UserDTO userDTO) {
-        String sql = "INSERT INTO user VALUE(?,?,?,?)";
+    public void save(UsersDTO usersDTO) {
+        String sql = "INSERT INTO users VALUE(?,?,?,?)";
         jdbcTemplate.update(sql,
-                userDTO.getId(),
-                userDTO.getUserName(),
-                userDTO.getEmail(),
-                userDTO.getCreatedAt()
+                usersDTO.getId(),
+                usersDTO.getUserName(),
+                usersDTO.getEmail(),
+                usersDTO.getCreated_at()
                 );
     }
 
     @Override
-    public boolean updateUser(UserDTO userDTO) {
-        String sql = "UPDATE user SET userName=?, userEmail=?, CreatedAt=?, WHERE userId=?";
+    public boolean updateUser(UsersDTO usersDTO) {
+        String sql = "UPDATE users SET userName=?, email=?, Created_at=? WHERE id=?";
         return jdbcTemplate.update(sql,
-                userDTO.getUserName(),
-                userDTO.getEmail(),
-                userDTO.getCreatedAt(),
-                userDTO.getId()
+                usersDTO.getUserName(),
+                usersDTO.getEmail(),
+                usersDTO.getCreated_at(),
+                usersDTO.getId()
                 )>0;
     }
 
     @Override
     public boolean deleteById(String id) {
-        String sql = "DELETE FROM user WHERE id=? ";
+        String sql = "DELETE FROM users WHERE id=? ";
 
         return jdbcTemplate.update(sql,id)>0;
     }
 
     @Override
-    public List<UserDTO> getAll() {
-        String sql = "SELECT * FROM user";
+    public List<UsersDTO> getAllUsers() {
+        String sql = "SELECT * FROM users";
 
-        List<UserDTO> userDTOList = jdbcTemplate.query(sql, (rs, rowNum) -> {
+        List<UsersDTO> usersDTOList = jdbcTemplate.query(sql, (rs, rowNum) -> {
 
-            UserDTO userDTO = new UserDTO();
+            UsersDTO usersDTO = new UsersDTO();
 
-            userDTO.setId(String.valueOf(rs.getLong(1)));
-            userDTO.setUserName(rs.getString(2));
-            userDTO.setEmail(rs.getString(3));
-            userDTO.setCreatedAt(rs.getTimestamp(4).toLocalDateTime());
-            return userDTO;
+            usersDTO.setId(String.valueOf(rs.getLong(1)));
+            usersDTO.setUserName(rs.getString(2));
+            usersDTO.setEmail(rs.getString(3));
+            usersDTO.setCreated_at(rs.getTimestamp(4).toLocalDateTime());
+            return usersDTO;
         });
-        return userDTOList;
+        return usersDTOList;
     }
 }
