@@ -1,0 +1,26 @@
+package edu.icet.repository.Impl;
+
+import edu.icet.dto.DocumentsDTO;
+import edu.icet.repository.DocumentRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository
+@RequiredArgsConstructor
+public class DocumentRepositoryImpl implements DocumentRepository {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    @Override
+    public void saveDocument(DocumentsDTO documentsDTO) {
+        String sql = "INSERT INTO documents VALUE(?,?,?,?,?)";
+        jdbcTemplate.update(sql,
+                documentsDTO.getId(),
+                documentsDTO.getUserId(),
+                documentsDTO.getFileName(),
+                documentsDTO.getFilePath(),
+                documentsDTO.getUploaded_at()
+        );
+    }
+}
