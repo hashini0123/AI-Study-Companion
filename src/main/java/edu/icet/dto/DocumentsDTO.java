@@ -14,5 +14,5 @@ public class DocumentsDTO {
     private String userId;
     private String fileName;
     private String filePath;
-    private LocalDateTime uploadedAt;
+    private LocalDateTime uploaded_at;
 }
