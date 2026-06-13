@@ -13,6 +13,6 @@ public class Documents {
     private Long id;
     private String fileName;
     private String filePath;
-    private LocalDateTime uploadedAt;
-    private User user;
+    private LocalDateTime uploaded_at;
+    private String userId;
 }
