@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @Builder
 public class Documents {
     private Long id;
-    private String fileName;
-    private String filePath;
+    private String file_name;
+    private String file_path;
     private LocalDateTime uploaded_at;
-    private String userId;
+    private String user_id;
 }
