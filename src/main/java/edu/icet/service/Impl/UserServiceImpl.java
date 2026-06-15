@@ -22,13 +22,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateUser(UsersDTO usersDTO) {
-        //usersDTO.setId(String.valueOf(Long.parseLong(id)));
         return userRepository.updateUser(usersDTO);
     }
 
     @Override
     public boolean deleteUser(String id) {
-        //Long userId = Long.parseLong(id);
         return userRepository.deleteById(id);
     }
 
