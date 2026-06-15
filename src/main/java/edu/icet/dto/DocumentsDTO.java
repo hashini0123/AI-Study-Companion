@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @ToString
 public class DocumentsDTO {
     private Long id;
-    private String userId;
-    private String fileName;
-    private String filePath;
+    private String user_id;
+    private String filea_name;
+    private String file_path;
     private LocalDateTime uploaded_at;
 }
