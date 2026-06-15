@@ -23,4 +23,16 @@ public class DocumentRepositoryImpl implements DocumentRepository {
                 documentsDTO.getUploaded_at()
         );
     }
+
+    @Override
+    public boolean updateDocument(DocumentsDTO documentsDTO) {
+        String sql = "UPDATE documents SET userId=? , fileName=?, filePath=?, uploaded_at=? WHERE id=?";
+        return jdbcTemplate.update(sql,
+                documentsDTO.getUserId(),
+                documentsDTO.getFileName(),
+                documentsDTO.getFilePath(),
+                documentsDTO.getUploaded_at(),
+                documentsDTO.getId()
+                )>0;
+    }
 }
