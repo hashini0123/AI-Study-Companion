@@ -32,5 +32,17 @@ public class DocumentController {
 
     }
 
+    @DeleteMapping("/delete-by-id/{id}")
+    public ResponseEntity<String> deleteDocument(@PathVariable String id){
+        boolean isDelete = documentService.deleteDocument(id);
+
+        if(isDelete){
+            return ResponseEntity.ok("User delete successfully!");
+        }else{
+
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found!");
+        }
+    }
+
 
 }
