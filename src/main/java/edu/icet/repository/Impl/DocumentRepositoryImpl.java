@@ -17,20 +17,20 @@ public class DocumentRepositoryImpl implements DocumentRepository {
         String sql = "INSERT INTO documents VALUE(?,?,?,?,?)";
         jdbcTemplate.update(sql,
                 documentsDTO.getId(),
-                documentsDTO.getUserId(),
-                documentsDTO.getFileName(),
-                documentsDTO.getFilePath(),
+                documentsDTO.getUser_id(),
+                documentsDTO.getFilea_name(),
+                documentsDTO.getFile_path(),
                 documentsDTO.getUploaded_at()
         );
     }
 
     @Override
     public boolean updateDocument(DocumentsDTO documentsDTO) {
-        String sql = "UPDATE documents SET userId=? , fileName=?, filePath=?, uploaded_at=? WHERE id=?";
+        String sql = "UPDATE documents SET user_id=? , file_name=?, file_path=?, uploaded_at=? WHERE id=?";
         return jdbcTemplate.update(sql,
-                documentsDTO.getUserId(),
-                documentsDTO.getFileName(),
-                documentsDTO.getFilePath(),
+                documentsDTO.getUser_id(),
+                documentsDTO.getFilea_name(),
+                documentsDTO.getFile_path(),
                 documentsDTO.getUploaded_at(),
                 documentsDTO.getId()
                 )>0;

@@ -18,7 +18,7 @@ public class UserRepositoryImpl implements UserRepository {
     public void save(UsersDTO usersDTO) {
         String sql = "INSERT INTO users VALUE(?,?,?,?)";
         jdbcTemplate.update(sql,
-                usersDTO.getId(),
+                usersDTO.getUser_id(),
                 usersDTO.getUserName(),
                 usersDTO.getEmail(),
                 usersDTO.getCreated_at()
@@ -32,7 +32,7 @@ public class UserRepositoryImpl implements UserRepository {
                 usersDTO.getUserName(),
                 usersDTO.getEmail(),
                 usersDTO.getCreated_at(),
-                usersDTO.getId()
+                usersDTO.getUser_id()
                 )>0;
     }
 
@@ -51,7 +51,7 @@ public class UserRepositoryImpl implements UserRepository {
 
             UsersDTO usersDTO = new UsersDTO();
 
-            usersDTO.setId(rs.getString(1));
+            usersDTO.setUser_id(rs.getString(1));
             usersDTO.setUserName(rs.getString(2));
             usersDTO.setEmail(rs.getString(3));
             usersDTO.setCreated_at(rs.getTimestamp(4).toLocalDateTime());
