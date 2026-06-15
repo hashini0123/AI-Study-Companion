@@ -16,4 +16,9 @@ public class DocumentServiceImpl implements DocumentService {
     public void saveDocument(DocumentsDTO documentsDTO) {
         documentRepository.saveDocument(documentsDTO);
     }
+
+    @Override
+    public boolean updateDocument(DocumentsDTO documentsDTO) {
+        return documentRepository.updateDocument(documentsDTO);
+    }
 }
