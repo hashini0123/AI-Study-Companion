@@ -6,4 +6,6 @@ public interface DocumentRepository {
     void saveDocument(DocumentsDTO documentsDTO);
 
     boolean updateDocument(DocumentsDTO documentsDTO);
+
+    boolean deleteById(String id);
 }

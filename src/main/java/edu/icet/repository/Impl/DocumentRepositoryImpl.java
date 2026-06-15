@@ -35,4 +35,10 @@ public class DocumentRepositoryImpl implements DocumentRepository {
                 documentsDTO.getId()
                 )>0;
     }
+
+    @Override
+    public boolean deleteById(String id) {
+        String sql = "DELETE FROM documents WHERE id=?";
+        return jdbcTemplate.update(sql,id)>0;
+    }
 }
