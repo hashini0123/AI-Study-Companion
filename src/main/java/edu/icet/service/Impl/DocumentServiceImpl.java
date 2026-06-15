@@ -21,4 +21,9 @@ public class DocumentServiceImpl implements DocumentService {
     public boolean updateDocument(DocumentsDTO documentsDTO) {
         return documentRepository.updateDocument(documentsDTO);
     }
+
+    @Override
+    public boolean deleteDocument(String id) {
+        return documentRepository.deleteById(id);
+    }
 }
