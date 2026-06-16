@@ -6,6 +6,8 @@ import edu.icet.service.DocumentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class DocumentServiceImpl implements DocumentService {
@@ -25,5 +27,10 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public boolean deleteDocument(String id) {
         return documentRepository.deleteById(id);
+    }
+
+    @Override
+    public List<DocumentsDTO> getAllDocument() {
+        return documentRepository.getAllDocument();
     }
 }
