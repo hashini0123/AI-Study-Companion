@@ -1,7 +1,6 @@
 package edu.icet.dto;
 
 import lombok.*;
-import org.w3c.dom.Text;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +12,6 @@ import java.time.LocalDateTime;
 public class SummariesDTO {
     private Long id;
     private Long documentId;
-    private Text summaryText;
+    private String summaryText;
     private LocalDateTime createdAt;
 }
