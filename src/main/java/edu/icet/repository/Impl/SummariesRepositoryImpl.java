@@ -13,7 +13,7 @@ public class SummariesRepositoryImpl implements SummariesRepository {
     private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public void saveSummarie(SummariesDTO summariesDTO) {
+    public void saveSummary(SummariesDTO summariesDTO) {
         String sql = "INSERT INTO summaries VALUE (?,?,?,?)";
         jdbcTemplate.update(sql,
                 summariesDTO.getId(),

@@ -13,7 +13,7 @@ public class SummariesServiceImpl implements SummariesService {
     private final SummariesRepository summariesRepository;
 
     @Override
-    public void saveSummarie(SummariesDTO summariesDTO) {
+    public void saveSummary(SummariesDTO summariesDTO) {
         summariesRepository.saveSummarie(summariesDTO);
     }
 }

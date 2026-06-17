@@ -17,8 +17,8 @@ public class SummariesController {
     public final SummariesService summariesService;
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveSummarie(@RequestBody SummariesDTO summariesDTO){
+    public ResponseEntity<String> saveSummary(@RequestBody SummariesDTO summariesDTO){
         summariesService.saveSummarie(summariesDTO);
-        return ResponseEntity.ok("Summarie saved successfully!");
+        return ResponseEntity.ok("Summary saved successfully!");
     }
 }
