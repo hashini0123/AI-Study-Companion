@@ -14,4 +14,5 @@ public class SummariesDTO {
     private Long documentId;
     private String summaryText;
     private LocalDateTime createdAt;
+
 }
