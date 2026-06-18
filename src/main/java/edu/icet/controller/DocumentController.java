@@ -39,10 +39,9 @@ public class DocumentController {
         boolean isDelete = documentService.deleteDocument(id);
 
         if(isDelete){
-            return ResponseEntity.ok("User delete successfully!");
+            return ResponseEntity.ok("Document delete successfully!");
         }else{
-
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found!");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Document not found!");
         }
     }
 
