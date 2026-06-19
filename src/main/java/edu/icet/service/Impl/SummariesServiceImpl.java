@@ -14,6 +14,11 @@ public class SummariesServiceImpl implements SummariesService {
 
     @Override
     public void saveSummary(SummariesDTO summariesDTO) {
-        summariesRepository.saveSummarie(summariesDTO);
+        summariesRepository.saveSummary(summariesDTO);
+    }
+
+    @Override
+    public boolean updateSummary(SummariesDTO summariesDTO) {
+        return summariesRepository.updateSummary(summariesDTO);
     }
 }
