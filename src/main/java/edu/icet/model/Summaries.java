@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Summaries {
     private Long id;
-    private Long documentId;
-    private String summaryText;
-    private LocalDateTime createdAt;
+    private Long document_id;
+    private String summary_text;
+    private LocalDateTime created_at;
 }
