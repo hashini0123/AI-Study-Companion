@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class DocumentsDTO {
-    private Long id;
+    private Long document_id;
     private String user_id;
     private String filea_name;
     private String file_path;
