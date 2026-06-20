@@ -17,9 +17,20 @@ public class SummariesRepositoryImpl implements SummariesRepository {
         String sql = "INSERT INTO summaries VALUE (?,?,?,?)";
         jdbcTemplate.update(sql,
                 summariesDTO.getId(),
-                summariesDTO.getDocumentId(),
-                summariesDTO.getSummaryText(),
-                summariesDTO.getCreatedAt()
+                summariesDTO.getDocument_id(),
+                summariesDTO.getSummary_text(),
+                summariesDTO.getCreated_at()
                 );
+    }
+
+    @Override
+    public boolean updateSummary(SummariesDTO summariesDTO) {
+        String sql = "UPDATE summaries SET document_id=?, summary_text=?; created_at=? WHERE id=?";
+        return jdbcTemplate.update(sql,
+                summariesDTO.getDocument_id(),
+                summariesDTO.getSummary_text(),
+                summariesDTO.getCreated_at(),
+                summariesDTO.getId()
+                )>0;
     }
 }
