@@ -25,7 +25,7 @@ public class SummariesRepositoryImpl implements SummariesRepository {
 
     @Override
     public boolean updateSummary(SummariesDTO summariesDTO) {
-        String sql = "UPDATE summaries SET document_id=?, summary_text=?; created_at=? WHERE id=?";
+        String sql = "UPDATE summaries SET document_id=?, summary_text=?, created_at=? WHERE id=?";
         return jdbcTemplate.update(sql,
                 summariesDTO.getDocument_id(),
                 summariesDTO.getSummary_text(),
