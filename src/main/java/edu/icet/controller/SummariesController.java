@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/summaries")
@@ -40,6 +42,12 @@ public class SummariesController {
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Document not found!");
         }
+    }
+
+    @GetMapping("/get-All")
+    public ResponseEntity<List<SummariesDTO>> getAllSummary(){
+        List<SummariesDTO> AllSummary = summariesService.getAllSummary();
+        return ResponseEntity.ok(AllSummary);
     }
 
 }
