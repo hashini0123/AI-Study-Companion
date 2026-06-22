@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class QuizRepositoryImpl implements QuizRepository {
@@ -37,5 +39,21 @@ public class QuizRepositoryImpl implements QuizRepository {
     public boolean deleteById(String id) {
         String sql = "DELETE FROM quizzes WHERE id=?";
         return jdbcTemplate.update(sql,id)>0;
+    }
+
+    @Override
+    public List<QuizzesDTO> getAllQuiz() {
+        String sql = "SELECT * FROM quizzes";
+        List<QuizzesDTO> quizzesDTOList = jdbcTemplate.query(sql, (rs, rowNum) -> {
+
+            QuizzesDTO quizzesDTO = new QuizzesDTO();
+
+           quizzesDTO.setId(rs.getLong(1));
+           quizzesDTO.setDocument_id(rs.getLong(2));
+           quizzesDTO.setTitle(rs.getString(3));
+           quizzesDTO.setCreated_at(rs.getTimestamp(4).toLocalDateTime());
+           return quizzesDTO;
+        });
+        return quizzesDTOList;
     }
 }
