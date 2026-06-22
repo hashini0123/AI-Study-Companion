@@ -1,0 +1,19 @@
+package edu.icet.service.Impl;
+
+import edu.icet.dto.QuizzesDTO;
+import edu.icet.repository.QuizRepository;
+import edu.icet.service.QuizService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class QuizServiceImpl implements QuizService {
+
+    private final QuizRepository quizRepository;
+
+    @Override
+    public void saveQuiz(QuizzesDTO quizzesDTO) {
+        quizRepository.saveQuiz(quizzesDTO);
+    }
+}
