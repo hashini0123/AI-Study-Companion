@@ -6,4 +6,6 @@ public interface SummariesService {
     void saveSummary(SummariesDTO summariesDTO);
 
     boolean updateSummary(SummariesDTO summariesDTO);
+
+    boolean deleteSummary(String id);
 }
