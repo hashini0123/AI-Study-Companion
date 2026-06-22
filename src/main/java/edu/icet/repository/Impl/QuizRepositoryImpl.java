@@ -21,4 +21,15 @@ public class QuizRepositoryImpl implements QuizRepository {
                 quizzesDTO.getCreated_at()
         );
     }
+
+    @Override
+    public boolean updateQuiz(QuizzesDTO quizzesDTO) {
+        String sql = "UPDATE quizzes SET document_id=?, title=?, created_at=? WHERE id=?";
+        return jdbcTemplate.update(sql,
+                quizzesDTO.getDocument_id(),
+                quizzesDTO.getTitle(),
+                quizzesDTO.getCreated_at(),
+                quizzesDTO.getId()
+                )>0;
+    }
 }
