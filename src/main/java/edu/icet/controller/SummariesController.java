@@ -30,4 +30,16 @@ public class SummariesController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Summary not found!");
         }
     }
+
+    @DeleteMapping("/delete-by-id/{id}")
+    public ResponseEntity<String> deleteSummary(@PathVariable String id){
+        boolean isDelete = summariesService.deleteSummary(id);
+
+        if(isDelete){
+            return ResponseEntity.ok("Summary delete successfully!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Document not found!");
+        }
+    }
+
 }
