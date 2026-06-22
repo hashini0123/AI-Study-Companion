@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class DocumentsDTO {
     private Long id;
     private String user_id;
-    private String filea_name;
+    private String file_name;
     private String file_path;
     private LocalDateTime uploaded_at;
 }
