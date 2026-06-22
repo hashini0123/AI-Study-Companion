@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @ToString
 public class QuizzesDTO {
     private Long id;
-    private Long documentId;
+    private Long document_id;
     private String title;
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 }
