@@ -1,5 +1,6 @@
 package edu.icet.controller;
 
+import edu.icet.dto.QuestionsDTO;
 import edu.icet.dto.QuizzesDTO;
 import edu.icet.service.QuizService;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -41,6 +44,12 @@ public class QuizController {
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Quiz not found!");
         }
+    }
+
+    @GetMapping("/get-All")
+    public ResponseEntity<List<QuizzesDTO>> getAllQuiz(){
+        List<QuizzesDTO> AllQuiz = quizService.getAllQuiz();
+        return ResponseEntity.ok(AllQuiz);
     }
 
 }
