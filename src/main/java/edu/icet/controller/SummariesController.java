@@ -40,7 +40,7 @@ public class SummariesController {
         if(isDelete){
             return ResponseEntity.ok("Summary delete successfully!");
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Document not found!");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Summary not found!");
         }
     }
 
