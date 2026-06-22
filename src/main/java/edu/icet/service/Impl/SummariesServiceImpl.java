@@ -21,4 +21,9 @@ public class SummariesServiceImpl implements SummariesService {
     public boolean updateSummary(SummariesDTO summariesDTO) {
         return summariesRepository.updateSummary(summariesDTO);
     }
+
+    @Override
+    public boolean deleteSummary(String id) {
+        return summariesRepository.deleteById(id);
+    }
 }
