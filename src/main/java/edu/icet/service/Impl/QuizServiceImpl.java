@@ -21,4 +21,9 @@ public class QuizServiceImpl implements QuizService {
     public boolean updateQuiz(QuizzesDTO quizzesDTO) {
         return quizRepository.updateQuiz(quizzesDTO);
     }
+
+    @Override
+    public boolean deleteQuiz(String id) {
+        return quizRepository.deleteById(id);
+    }
 }

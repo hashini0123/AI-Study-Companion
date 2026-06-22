@@ -6,4 +6,6 @@ public interface QuizService {
     void saveQuiz(QuizzesDTO quizzesDTO);
 
     boolean updateQuiz(QuizzesDTO quizzesDTO);
+
+    boolean deleteQuiz(String id);
 }
