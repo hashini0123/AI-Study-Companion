@@ -16,4 +16,9 @@ public class QuizServiceImpl implements QuizService {
     public void saveQuiz(QuizzesDTO quizzesDTO) {
         quizRepository.saveQuiz(quizzesDTO);
     }
+
+    @Override
+    public boolean updateQuiz(QuizzesDTO quizzesDTO) {
+        return quizRepository.updateQuiz(quizzesDTO);
+    }
 }

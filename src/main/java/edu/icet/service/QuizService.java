@@ -4,4 +4,6 @@ import edu.icet.dto.QuizzesDTO;
 
 public interface QuizService {
     void saveQuiz(QuizzesDTO quizzesDTO);
+
+    boolean updateQuiz(QuizzesDTO quizzesDTO);
 }
