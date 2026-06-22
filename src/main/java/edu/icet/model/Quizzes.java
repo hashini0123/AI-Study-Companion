@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @Builder
 public class Quizzes {
     private Long id;
-    private Long documentId;
+    private Long document_id;
     private String title;
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
 }
