@@ -32,4 +32,15 @@ public class QuizController {
         }
     }
 
+    @DeleteMapping("/delete-by-id/{id}")
+    public ResponseEntity<String> deleteQuiz(@PathVariable String id){
+        boolean isDelete = quizService.deleteQuiz(id);
+
+        if(isDelete){
+            return ResponseEntity.ok("Quiz delete successfully!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Quiz not found!");
+        }
+    }
+
 }
