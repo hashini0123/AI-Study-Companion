@@ -32,4 +32,10 @@ public class QuizRepositoryImpl implements QuizRepository {
                 quizzesDTO.getId()
                 )>0;
     }
+
+    @Override
+    public boolean deleteById(String id) {
+        String sql = "DELETE FROM quizzes WHERE id=?";
+        return jdbcTemplate.update(sql,id)>0;
+    }
 }

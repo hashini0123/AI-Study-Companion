@@ -6,4 +6,6 @@ public interface QuizRepository {
     void saveQuiz(QuizzesDTO quizzesDTO);
 
     boolean updateQuiz(QuizzesDTO quizzesDTO);
+
+    boolean deleteById(String id);
 }
