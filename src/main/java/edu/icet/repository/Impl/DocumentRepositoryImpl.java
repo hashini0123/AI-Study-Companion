@@ -16,11 +16,10 @@ public class DocumentRepositoryImpl implements DocumentRepository {
 
     @Override
     public void saveDocument(DocumentsDTO documentsDTO) {
-        String sql = "INSERT INTO documents VALUE(?,?,?,?,?)";
+        String sql = "INSERT INTO documents (user_id,file_name,file_path,uploaded) VALUE(?,?,?,?)";
         jdbcTemplate.update(sql,
-                documentsDTO.getId(),
                 documentsDTO.getUser_id(),
-                documentsDTO.getFilea_name(),
+                documentsDTO.getFile_name(),
                 documentsDTO.getFile_path(),
                 documentsDTO.getUploaded_at()
         );
@@ -31,7 +30,7 @@ public class DocumentRepositoryImpl implements DocumentRepository {
         String sql = "UPDATE documents SET user_id=? , file_name=?, file_path=?, uploaded_at=? WHERE id=?";
         return jdbcTemplate.update(sql,
                 documentsDTO.getUser_id(),
-                documentsDTO.getFilea_name(),
+                documentsDTO.getFile_name(),
                 documentsDTO.getFile_path(),
                 documentsDTO.getUploaded_at(),
                 documentsDTO.getId()
@@ -53,7 +52,7 @@ public class DocumentRepositoryImpl implements DocumentRepository {
 
             documentsDTO.setId(rs.getLong(1));
             documentsDTO.setUser_id(rs.getString(2));
-            documentsDTO.setFilea_name(rs.getString(3));
+            documentsDTO.setFile_name(rs.getString(3));
             documentsDTO.setFile_path(rs.getString(4));
             documentsDTO.setUploaded_at(rs.getTimestamp(5).toLocalDateTime());
             return documentsDTO;

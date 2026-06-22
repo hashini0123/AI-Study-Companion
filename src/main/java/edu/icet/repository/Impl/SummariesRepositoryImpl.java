@@ -16,9 +16,8 @@ public class SummariesRepositoryImpl implements SummariesRepository {
 
     @Override
     public void saveSummary(SummariesDTO summariesDTO) {
-        String sql = "INSERT INTO summaries VALUE (?,?,?,?)";
+        String sql = "INSERT INTO summaries (document_id,summary_text,created_at) VALUE (?,?,?)";
         jdbcTemplate.update(sql,
-                summariesDTO.getId(),
                 summariesDTO.getDocument_id(),
                 summariesDTO.getSummary_text(),
                 summariesDTO.getCreated_at()
