@@ -6,6 +6,8 @@ import edu.icet.service.SummariesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SummariesServiceImpl implements SummariesService {
@@ -25,5 +27,10 @@ public class SummariesServiceImpl implements SummariesService {
     @Override
     public boolean deleteSummary(String id) {
         return summariesRepository.deleteById(id);
+    }
+
+    @Override
+    public List<SummariesDTO> getAllSummary() {
+        return summariesRepository.getAllSummary();
     }
 }
