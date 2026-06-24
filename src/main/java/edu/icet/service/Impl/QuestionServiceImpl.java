@@ -6,6 +6,8 @@ import edu.icet.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class QuestionServiceImpl implements QuestionService {
@@ -25,5 +27,10 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public boolean deleteQuestion(String id) {
         return questionRepository.deleteQuestion(id);
+    }
+
+    @Override
+    public List<QuestionsDTO> getAllQuestion() {
+        return questionRepository.getAllQuestion();
     }
 }
