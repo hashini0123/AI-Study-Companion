@@ -6,4 +6,6 @@ public interface QuestionRepository {
     void saveQuestion(QuestionsDTO questionsDTO);
 
     boolean updateQuestion(QuestionsDTO questionsDTO);
+
+    boolean deleteQuestion(String id);
 }
