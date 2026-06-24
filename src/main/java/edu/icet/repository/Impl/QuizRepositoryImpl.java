@@ -32,13 +32,13 @@ public class QuizRepositoryImpl implements QuizRepository {
                 quizzesDTO.getTitle(),
                 quizzesDTO.getCreated_at(),
                 quizzesDTO.getId()
-                )>0;
+        ) > 0;
     }
 
     @Override
     public boolean deleteById(String id) {
         String sql = "DELETE FROM quizzes WHERE id=?";
-        return jdbcTemplate.update(sql,id)>0;
+        return jdbcTemplate.update(sql, id) > 0;
     }
 
     @Override
@@ -48,12 +48,14 @@ public class QuizRepositoryImpl implements QuizRepository {
 
             QuizzesDTO quizzesDTO = new QuizzesDTO();
 
-           quizzesDTO.setId(rs.getLong(1));
-           quizzesDTO.setDocument_id(rs.getLong(2));
-           quizzesDTO.setTitle(rs.getString(3));
-           quizzesDTO.setCreated_at(rs.getTimestamp(4).toLocalDateTime());
-           return quizzesDTO;
+            quizzesDTO.setId(rs.getLong(1));
+            quizzesDTO.setDocument_id(rs.getLong(2));
+            quizzesDTO.setTitle(rs.getString(3));
+            quizzesDTO.setCreated_at(rs.getTimestamp(4).toLocalDateTime());
+            return quizzesDTO;
         });
         return quizzesDTOList;
     }
 }
+
+
