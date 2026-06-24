@@ -16,4 +16,9 @@ public class QuestionServiceImpl implements QuestionService {
     public void saveQuestion(QuestionsDTO questionsDTO) {
         questionRepository.saveQuestion(questionsDTO);
     }
+
+    @Override
+    public boolean updateQuestion(QuestionsDTO questionsDTO) {
+        return questionRepository.updateQuestion(questionsDTO);
+    }
 }
