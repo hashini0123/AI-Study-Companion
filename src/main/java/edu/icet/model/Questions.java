@@ -9,11 +9,11 @@ import lombok.*;
 public class Questions {
     private Long id;
     private Long quizId;
-    private String questionText;
-    private String optionA;
-    private String optionB;
-    private String optionC;
-    private String optionD;
-
+    private String question_text;
+    private String option_a;
+    private String option_b;
+    private String option_c;
+    private String option_d;
+    private String correct_option;
 
 }
