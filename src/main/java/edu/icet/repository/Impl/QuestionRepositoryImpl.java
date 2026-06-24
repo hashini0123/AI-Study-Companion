@@ -40,4 +40,10 @@ public class QuestionRepositoryImpl implements QuestionRepository {
                 questionsDTO.getId()
         )>0;
     }
+
+    @Override
+    public boolean deleteQuestion(String id) {
+        String sql = "DELETE FROM questions WHERE id=?";
+        return jdbcTemplate.update(sql, id)>0;
+    }
 }
