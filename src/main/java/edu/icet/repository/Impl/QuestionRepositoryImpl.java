@@ -25,4 +25,19 @@ public class QuestionRepositoryImpl implements QuestionRepository {
                 questionsDTO.getCorrect_option()
         );
     }
+
+    @Override
+    public boolean updateQuestion(QuestionsDTO questionsDTO) {
+        String sql = "UPDATE questions SET quiz_id=? , question_text=? , option_a=? , option_b=? , option_c=? , option_d=? , correct_option=? WHERE id=?";
+        return jdbcTemplate.update(sql,
+                questionsDTO.getQuiz_id(),
+                questionsDTO.getQuestion_text(),
+                questionsDTO.getOption_a(),
+                questionsDTO.getOption_b(),
+                questionsDTO.getOption_c(),
+                questionsDTO.getOption_d(),
+                questionsDTO.getCorrect_option(),
+                questionsDTO.getId()
+        )>0;
+    }
 }
