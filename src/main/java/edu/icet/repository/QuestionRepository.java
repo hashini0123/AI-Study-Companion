@@ -4,4 +4,6 @@ import edu.icet.dto.QuestionsDTO;
 
 public interface QuestionRepository {
     void saveQuestion(QuestionsDTO questionsDTO);
+
+    boolean updateQuestion(QuestionsDTO questionsDTO);
 }
