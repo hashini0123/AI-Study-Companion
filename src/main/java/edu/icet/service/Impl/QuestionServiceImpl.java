@@ -21,4 +21,9 @@ public class QuestionServiceImpl implements QuestionService {
     public boolean updateQuestion(QuestionsDTO questionsDTO) {
         return questionRepository.updateQuestion(questionsDTO);
     }
+
+    @Override
+    public boolean deleteQuestion(String id) {
+        return questionRepository.deleteQuestion(id);
+    }
 }
