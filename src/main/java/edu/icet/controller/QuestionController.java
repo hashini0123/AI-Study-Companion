@@ -26,9 +26,19 @@ public class QuestionController {
         boolean isUpdate = questionService.updateQuestion(questionsDTO);
 
         if(isUpdate){
-            return ResponseEntity.ok("Quiz update successfully!");
+            return ResponseEntity.ok("Question update successfully!");
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Quiz not found!");
+        }
+    }
+
+    @DeleteMapping("/delete-by-id/{id}")
+    public ResponseEntity<String> deleteQuestion(@PathVariable String id){
+        boolean isDelete = questionService.deleteQuestion(id);
+        if(isDelete){
+            return ResponseEntity.ok("Question delete successfully!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Question not found!");
         }
     }
 }
