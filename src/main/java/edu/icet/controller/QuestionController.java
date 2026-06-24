@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping
@@ -40,5 +42,11 @@ public class QuestionController {
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Question not found!");
         }
+    }
+
+    @GetMapping("/get-All")
+    public ResponseEntity<List<QuestionsDTO>> getAllQuestion(){
+        List<QuestionsDTO> AllQuestion = questionService.getAllQuestion();
+        return ResponseEntity.ok(AllQuestion);
     }
 }
