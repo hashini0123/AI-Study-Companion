@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @ToString
 
 public class UsersDTO {
-    private String user_id;
-    private String userName;
+    private String id;
+    private String username;
     private String email;
     private String password;
     private String role;
