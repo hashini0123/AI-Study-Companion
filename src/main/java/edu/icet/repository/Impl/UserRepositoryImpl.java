@@ -16,22 +16,27 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void save(UsersDTO usersDTO) {
-        String sql = "INSERT INTO users (user_name,email,created_at) VALUE(?,?,?,?)";
+        String sql = "INSERT INTO users (id, username, email, password, role, created_at) VALUE(?,?,?,?,?,?)";
         jdbcTemplate.update(sql,
-                usersDTO.getUserName(),
+                usersDTO.getId(),
+                usersDTO.getUsername(),
                 usersDTO.getEmail(),
+                usersDTO.getPassword(),
+                usersDTO.getRole(),
                 usersDTO.getCreated_at()
                 );
     }
 
     @Override
     public boolean updateUser(UsersDTO usersDTO) {
-        String sql = "UPDATE users SET userName=?, email=?, Created_at=? WHERE id=?";
+        String sql = "UPDATE users SET username=?, email=?, password=?, role=?, Created_at=? WHERE id=?";
         return jdbcTemplate.update(sql,
-                usersDTO.getUserName(),
+                usersDTO.getUsername(),
                 usersDTO.getEmail(),
+                usersDTO.getPassword(),
+                usersDTO.getRole(),
                 usersDTO.getCreated_at(),
-                usersDTO.getUser_id()
+                usersDTO.getId()
                 )>0;
     }
 
@@ -50,10 +55,12 @@ public class UserRepositoryImpl implements UserRepository {
 
             UsersDTO usersDTO = new UsersDTO();
 
-            usersDTO.setUser_id(rs.getString(1));
-            usersDTO.setUserName(rs.getString(2));
+            usersDTO.setId(rs.getString(1));
+            usersDTO.setUsername(rs.getString(2));
             usersDTO.setEmail(rs.getString(3));
-            usersDTO.setCreated_at(rs.getTimestamp(4).toLocalDateTime());
+            usersDTO.setPassword(rs.getString(4));
+            usersDTO.setRole(rs.getString(5));
+            usersDTO.setCreated_at(rs.getTimestamp(6).toLocalDateTime());
             return usersDTO;
         });
         return usersDTOList;
